@@ -151,7 +151,7 @@ const Skills = () => {
                 </div>
               </div>
 
-              {/* Progress Bar */}
+              {/* Progress Bar */} 
               <div className="relative">
                 <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2 overflow-hidden">
                   <motion.div

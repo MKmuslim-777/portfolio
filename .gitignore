@@ -45,3 +45,4 @@ firestore-debug.log
 
 # Old build artifacts
 dist/
+.vercel

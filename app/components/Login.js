@@ -213,18 +213,6 @@ const Login = ({ onLogin }) => {
             </button>
           </p>
         </motion.div>
-
-        {/* Admin Credentials Info */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.7 }}
-          className="mt-6 p-4 bg-blue-500/20 border border-blue-500/50 rounded-xl"
-        >
-          <p className="text-blue-300 text-sm font-medium mb-2">Demo Admin Access:</p>
-          <p className="text-blue-200 text-xs">Email: mk777@admin.com</p>
-          <p className="text-blue-200 text-xs">Password: 017772</p>
-        </motion.div>
       </motion.div>
 
       {/* Background Elements */}
