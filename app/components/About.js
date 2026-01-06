@@ -1,10 +1,13 @@
-import { motion } from "framer-motion";
-import { useInView } from "framer-motion";
-import { useRef } from "react";
+'use client'
+
+import { motion } from "framer-motion"
+import { useInView } from "framer-motion"
+import { useRef } from "react"
+import Image from "next/image"
 
 const About = () => {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, threshold: 0.2 });
+  const ref = useRef(null)
+  const isInView = useInView(ref, { once: true, threshold: 0.2 })
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -15,7 +18,7 @@ const About = () => {
         staggerChildren: 0.2,
       },
     },
-  };
+  }
 
   const itemVariants = {
     hidden: { y: 50, opacity: 0 },
@@ -27,7 +30,7 @@ const About = () => {
         ease: "easeOut",
       },
     },
-  };
+  }
 
   return (
     <motion.section
@@ -51,13 +54,20 @@ const About = () => {
               transition={{ duration: 0.3 }}
               className="relative rounded-2xl overflow-hidden shadow-2xl ring-1 ring-white/10 aspect-[4/5] max-w-md mx-auto lg:mx-0"
             >
-              <motion.img
+              <motion.div
                 whileHover={{ scale: 1.1 }}
                 transition={{ duration: 0.7 }}
-                alt="Muslim Uddin Professional Photo"
-                className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700"
-                src="https://i.ibb.co.com/cSXqrmRy/DSC-0064.png"
-              />
+                className="w-full h-full transform group-hover:scale-105 transition-transform duration-700"
+              >
+                <Image
+                  alt="Muslim Uddin Professional Photo"
+                  className="w-full h-full object-cover"
+                  src="https://i.ibb.co.com/jknN9b0D/sfsf.png"
+                  width={400}
+                  height={500}
+                  priority
+                />
+              </motion.div>
               <div className="absolute inset-0 bg-gradient-to-t from-background-dark/90 via-transparent to-transparent opacity-60"></div>
               <motion.div
                 initial={{ y: 20, opacity: 0 }}
@@ -158,22 +168,13 @@ const About = () => {
             >
               <motion.p variants={itemVariants}>
                 Hello! I'm{" "}
-                <strong className="text-primary font-bold text-xl">
-                  Muslim Uddin
-                </strong>
+                <strong className="text-primary font-bold text-xl">Muslim Uddin</strong>
                 , a passionate Web Developer and UI/UX Designer with a knack for
                 turning complex problems into simple, beautiful, and intuitive
                 designs.
               </motion.p>
               <motion.p variants={itemVariants}>
-                I'm a passionate Full Stack Web Developer specialized in the
-                MERN Stack (React.js, Tailwind CSS, Node.js, Express.js,
-                MongoDB, Firebase). I love building modern, responsive, and
-                user-friendly web applications. With a strong focus on clean
-                code and performance, I enjoy transforming complex requirements
-                into seamless web experiences. I have also experience in using
-                Next.js for server-side rendering and Tailwind CSS for design a
-                beautiful UI.
+                I'm a passionate Full Stack Web Developer specialized in the MERN Stack (React.js, Tailwind CSS, Node.js, Express.js, MongoDB, Firebase). I love building modern, responsive, and user-friendly web applications. With a strong focus on clean code and performance, I enjoy transforming complex requirements into seamless web experiences. I have also experience in using Next.js for server-side rendering and Tailwind CSS for design a beautiful UI.
               </motion.p>
             </motion.div>
 
@@ -201,7 +202,7 @@ const About = () => {
                     borderColor: "rgba(245, 0, 87, 0.5)",
                     boxShadow: "0 10px 30px rgba(245, 0, 87, 0.2)",
                   }}
-                  className="p-4 rounded-xl bg-card-dark border border-white/5 hover:border-primary/50 transition-colors group cursor-pointer"
+                  className="p-4 rounded-xl bg-white/5 dark:bg-white/5 backdrop-blur-sm border border-gray-200/20 dark:border-white/5 hover:border-primary/50 transition-colors group cursor-pointer"
                 >
                   <motion.div
                     whileHover={{ scale: 1.2, rotate: 5 }}
@@ -210,10 +211,10 @@ const About = () => {
                   >
                     <i className={`fas fa-${item.icon} fa-2x`}></i>
                   </motion.div>
-                  <h4 className="text-white font-bold font-display text-lg">
+                  <h4 className="text-gray-900 dark:text-white font-bold font-display text-lg">
                     {item.title}
                   </h4>
-                  <p className="text-gray-500 text-sm mt-1">{item.skills}</p>
+                  <p className="text-gray-600 dark:text-gray-400 text-sm mt-1">{item.skills}</p>
                 </motion.div>
               ))}
             </motion.div>
@@ -225,11 +226,10 @@ const About = () => {
               <motion.a
                 whileHover={{
                   scale: 1.05,
-                  backgroundColor: "rgba(255, 255, 255, 1)",
-                  color: "rgba(0, 0, 0, 1)",
+                  boxShadow: "0 20px 40px rgba(245, 0, 87, 0.4)"
                 }}
                 whileTap={{ scale: 0.95 }}
-                className="inline-flex items-center gap-2 text-white bg-white hover:text-black px-6 py-3 rounded-full transition-all duration-300 font-medium text-sm"
+                className="inline-flex items-center gap-2 bg-gradient-to-r from-primary to-red-600 hover:from-red-600 hover:to-primary text-white px-6 py-3 rounded-full transition-all duration-300 font-medium text-sm cursor-pointer shadow-lg shadow-primary/30 hover:shadow-primary/50 border border-transparent hover:border-white/20"
                 href="#"
               >
                 Download CV{" "}
@@ -244,15 +244,9 @@ const About = () => {
                 </span>
                 <div className="flex gap-3">
                   {[
-                    {
-                      icon: "fab fa-linkedin",
-                      url: "https://www.linkedin.com/in/muslim-uddin-kaichan/",
-                    },
-                    {
-                      icon: "fab fa-github",
-                      url: "https://github.com/MKmuslim-777",
-                    },
-                    { icon: "fas fa-globe", url: "https://mk777.rf.gd/?i=1" },
+                    { icon: "fab fa-linkedin", url: "https://www.linkedin.com/in/muslim-uddin-kaichan/" },
+                    { icon: "fab fa-github", url: "https://github.com/MKmuslim-777" },
+                    { icon: "fas fa-globe", url: "https://mk777.rf.gd/?i=1" }
                   ].map((social, index) => (
                     <motion.a
                       key={social.icon}
@@ -260,7 +254,7 @@ const About = () => {
                       animate={isInView ? { scale: 1 } : { scale: 0 }}
                       transition={{ duration: 0.3, delay: 1 + index * 0.1 }}
                       whileHover={{ scale: 1.2, y: -2 }}
-                      className="text-gray-400 hover:text-primary transition-colors"
+                      className="text-gray-400 hover:text-primary transition-colors cursor-pointer"
                       href={social.url}
                       target="_blank"
                       rel="noopener noreferrer"
@@ -275,7 +269,7 @@ const About = () => {
         </div>
       </div>
     </motion.section>
-  );
-};
+  )
+}
 
-export default About;
+export default About

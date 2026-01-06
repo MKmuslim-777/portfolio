@@ -1,0 +1,178 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Saira:wght@400;600;700;900&display=swap');
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Hide default cursor */
+* {
+  cursor: none !important;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.1);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #F50057;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #d1004a;
+}
+
+.text-stroke-2 {
+  -webkit-text-stroke: 2px white;
+  color: transparent;
+}
+
+.text-stroke-1 {
+  -webkit-text-stroke: 1px rgba(255,255,255,0.5);
+  color: transparent;
+}
+
+.bg-geometric {
+  background-color: #0B0B0C;
+  background-image: linear-gradient(30deg, #131313 12%, transparent 12.5%, transparent 87%, #131313 87.5%, #131313), 
+                    linear-gradient(150deg, #131313 12%, transparent 12.5%, transparent 87%, #131313 87.5%, #131313), 
+                    linear-gradient(30deg, #131313 12%, transparent 12.5%, transparent 87%, #131313 87.5%, #131313), 
+                    linear-gradient(150deg, #131313 12%, transparent 12.5%, transparent 87%, #131313 87.5%, #131313), 
+                    linear-gradient(60deg, #1a1a1a77 25%, transparent 25.5%, transparent 75%, #1a1a1a77 75%, #1a1a1a77), 
+                    linear-gradient(60deg, #1a1a1a77 25%, transparent 25.5%, transparent 75%, #1a1a1a77 75%, #1a1a1a77);
+  background-size: 80px 140px;
+  background-position: 0 0, 0 0, 40px 70px, 40px 70px, 0 0, 40px 70px;
+  opacity: 0.4;
+}
+
+/* Glass morphism effect for navbar */
+.glass-navbar {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.dark .glass-navbar {
+  background: rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+/* Loading animation keyframes */
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(245, 0, 87, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(245, 0, 87, 0.6);
+  }
+}
+
+.pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+/* Smooth page transitions */
+.page-transition {
+  transition: all 0.3s ease-in-out;
+}
+
+/* Custom selection */
+::selection {
+  background: rgba(245, 0, 87, 0.3);
+  color: white;
+}
+
+::-moz-selection {
+  background: rgba(245, 0, 87, 0.3);
+  color: white;
+}
+
+/* Enhanced Glass Effects for Project Cards */
+.glass-card {
+  background: linear-gradient(135deg, rgba(255,255,255,0.25) 0%, rgba(255,255,255,0.1) 100%);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+.dark .glass-card {
+  background: linear-gradient(135deg, rgba(255,255,255,0.15) 0%, rgba(255,255,255,0.05) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.glass-card:hover {
+  background: linear-gradient(135deg, rgba(255,255,255,0.35) 0%, rgba(255,255,255,0.15) 100%);
+  border: 1px solid rgba(245, 0, 87, 0.6);
+  box-shadow: 0 30px 60px rgba(245, 0, 87, 0.3);
+  transform: translateY(-10px) scale(1.02);
+}
+
+.dark .glass-card:hover {
+  background: linear-gradient(135deg, rgba(255,255,255,0.25) 0%, rgba(255,255,255,0.1) 100%);
+  border: 1px solid rgba(245, 0, 87, 0.6);
+  box-shadow: 0 30px 60px rgba(245, 0, 87, 0.4);
+}
+
+/* 3D Transform Effects */
+.perspective-1000 {
+  perspective: 1000px;
+}
+
+.transform-gpu {
+  transform: translateZ(0);
+  will-change: transform;
+}
+
+/* Floating Animation */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.float-animation {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Shimmer Effect */
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.shimmer {
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  background-size: 200% 100%;
+  animation: shimmer 2s infinite;
+}
+
+/* Enhanced Shadow Effects */
+.shadow-3xl {
+  box-shadow: 0 35px 60px -12px rgba(0, 0, 0, 0.25);
+}
+
+.shadow-primary {
+  box-shadow: 0 20px 40px rgba(245, 0, 87, 0.3);
+}
+
+.shadow-primary-lg {
+  box-shadow: 0 30px 60px rgba(245, 0, 87, 0.4);
+}
